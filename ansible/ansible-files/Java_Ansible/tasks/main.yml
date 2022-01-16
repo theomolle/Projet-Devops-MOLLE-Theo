@@ -11,7 +11,7 @@
     name: java_user
     comment: User java
     group: admin
-    password: 80e8b5674e908eb2fa4decff4f58f35831d1268d7c2431bfd8e72bc057b41a92
+    password: 8e1f170925b1fc360fec30f5cd0f43459ee599bace6ecf7081bfcc4bbd968722
 
 - name: download java app
   become: yes
