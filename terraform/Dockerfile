@@ -6,7 +6,7 @@
 #   Run -> docker run --name myjenkins -p 8080:8080 -p 50000:50000 jenkins-cust
 #
 FROM jenkins/jenkins:lts-jdk11
-MAINTAINER Ozz007 & Quintus
+MAINTAINER Adrien & Quentin
 
 # Disable setup wizard
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false -Dpermissive-script-security.enabled=true
