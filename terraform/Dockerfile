@@ -6,12 +6,18 @@
 #   Run -> docker run --name myjenkins -p 8080:8080 -p 50000:50000 jenkins-cust
 #
 FROM jenkins/jenkins:lts-jdk11
-MAINTAINER Adrien & Quentin
+MAINTAINER Ozz007 & Quintus
 
 # Disable setup wizard
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false -Dpermissive-script-security.enabled=true
+#
+#ENV JENKINS_USER admin
+#ENV JENKINS_PASS ThisIs@StrongP@ssword
 
 USER root
+
+RUN mkdir /terraform-files/
+
 RUN apt-get update && \
     apt-get -y install apt-transport-https \
       ca-certificates \
@@ -25,6 +31,9 @@ RUN apt-get update && \
       stable" && \
    apt-get update && \
    apt-get -y install docker-ce
+
+RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - && apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && apt-get update && apt-get install terraform
+
 
 # Load plugins w jenkins-plugin-cli
 COPY --chown=jenkins:jenkins conf/plugins.txt /usr/share/jenkins/ref/plugins.txt

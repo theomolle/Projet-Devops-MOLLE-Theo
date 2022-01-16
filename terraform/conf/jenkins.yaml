@@ -5,7 +5,7 @@ jenkins:
   systemMessage: "Hi, jenkins setup with jcasc"
   securityRealm:
     local:
-      allowsSignup: false
+      allowsSignup: false 
       users:
         - id: ${JENKINS_ADMIN_ID}
           password: ${JENKINS_ADMIN_PASSWORD}
@@ -68,7 +68,7 @@ tool:
   jdk:
     installations:
       - home: "/opt/java/openjdk"
-        name: "java"gi
+        name: "java"
   maven:
     installations:
       - name: "maven"
@@ -79,6 +79,7 @@ tool:
                     id: "3.6.2"
 
 
-#jobs:
-#   - file: /var/jenkins_config/jobs/folders.groovy
-#   - file: /var/jenkins_config/jobs/job1.groovy
+jobs:
+  - file: /var/jenkins_config/jobs/folders.groovy
+  - file: /var/jenkins_config/jobs/terraform.groovy
+  - file: /var/jenkins_config/jobs/terraform-destroy.groovy
