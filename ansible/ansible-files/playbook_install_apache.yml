@@ -1,5 +1,0 @@
----
-- name: Java
-  hosts: terraform
-  roles:
-    - Java_Ansible
